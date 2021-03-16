@@ -1,6 +1,15 @@
 #BlueJ class context
 comment0.target=Value
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Formula\ here.\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 14/3/2021\r\n
-comment1.params=
-comment1.target=Value()
-numComments=2
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Formula\ here.\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
+comment1.params=tokens\ inputs
+comment1.target=Value(java.lang.String[],\ double[])
+comment2.params=symbol
+comment2.target=double\ getValue(java.lang.String)
+comment2.text=\r\n\ GetValue\r\n\ @description\ (Write\ a\ description\ of\ the\ function)\r\n\ Arguments\:\r\n\ \ \ \ \ \ String\ symbol\ -\ a\ string\ to\ find\ corresponding\ value\r\n\ Returns\:\ double[]\ value\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
+comment3.params=tokens
+comment3.target=void\ setSymbols(java.lang.String[])
+comment3.text=\r\n\ SetSymbols\r\n\ Sets\ String\ array\ symbols\r\n\ Arguments\:\r\n\ \ \ \ \ \ String[]\ tokens\ -\ tokenized\ string\ array\ of\ formula\r\n\ Returns\:\ N/A\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
+comment4.params=inputs
+comment4.target=void\ setValues(double[])
+comment4.text=\r\n\ SetValues\r\n\ Sets\ double\ array\ values\r\n\ Arguments\:\ N/A\r\n\ Returns\:\ N/A\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
+numComments=5

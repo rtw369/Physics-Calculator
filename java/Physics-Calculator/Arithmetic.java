@@ -3,32 +3,35 @@
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 14/3/2021
+ * Modified: 15/3/2021
  */
 public class Arithmetic
 {
-    public Arithmetic(String[] formula, double[] values)
+    public Arithmetic(Formula f, Value v)
     {
-        String[] s = OrderOfOperations(formula, values);
-        System.out.println(s[0]);
+        orderOfOperations(f.getToken(), v.getValue());
     }
     
     /**
      * OrderOfOperations
      * Does calculations according to the order of operation.
      * Arguments:
-     *      String[] f - 
-     *      double[] v - 
-     * Returns: String[]
+     *      String[] f - tokenized formula
+     *      String[] s - symbols
+     *      double[] v - values of symbols
+     * Returns: String[] f
      * 
      * Taewoo Rim
      * Created: 14/3/2021
-     * Modified: 14/3/2021
+     * Modified: 15/3/2021
      */
-    public String[] OrderOfOperations(String[] f, double[] v)
+    public String[] orderOfOperations(String[] f, double[] v)
     {
+        Value value = new Value(f,v);
         String[] Chunk = new String[f.length];
         int placeHolder = 0;
+        
+        // Find brackets and do order of operations
         for(int i = 0; i < f.length; i++)
         {
             if(f[i] == "(")
@@ -42,7 +45,7 @@ public class Arithmetic
                     Chunk[count] = f[placeHolder];
                     i--;
                 }
-                OrderOfOperations(Chunk, v);
+                orderOfOperations(Chunk, v);
                 f[placeHolder] = f[placeHolder+1];
                 for(int n = i-1; n < f.length - 2; n++)
                 {
@@ -50,68 +53,63 @@ public class Arithmetic
                 }
             }
         }
+        // Find "^"
         for(int i = 0; i < f.length; i++)
         {
             if(f[i] == "^")
             {
-                f[i-1] = Double.toString(Math.pow(v[i-1], v[i+1]));
-                v[i-1] = Math.pow(v[i-1], v[i+1]);
+                f[i-1] = Double.toString(Math.pow(value.findValue(f[i-1]), value.findValue(f[i+1])));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
-                    v[n] = v[n+2];
                 }
             }
         }
-        for(int i = 0; i < f.length; i++)
-        {
-            if(f[i] == "/")
-            {
-                f[i-1] = Double.toString(v[i-1]/v[i+1]);
-                v[i-1] = v[i-1]/v[i+1];
-                for (int n = i; n < f.length - 2; n++)
-                {
-                    f[n] = f[n+2];
-                    v[n] = v[n+2];
-                }
-            }
-        }
+        // Find "/"
         for(int i = 0; i < f.length; i++)
         {
             if(f[i] == "*")
             {
-                f[i-1] = Double.toString(v[i-1]*v[i+1]);
-                v[i-1] = v[i-1]*v[i+1];
+                f[i-1] = Double.toString(value.findValue(f[i-1])/value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
-                    v[n] = v[n+2];
                 }
             }
         }
+        // Find "*"
         for(int i = 0; i < f.length; i++)
         {
-            if(f[i] == "-")
+            if(f[i] == "*")
             {
-                f[i-1] = Double.toString(v[i-1]-v[i+1]);
-                v[i-1] = v[i-1]-v[i+1];
+                f[i-1] = Double.toString(value.findValue(f[i-1])*value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
-                    v[n] = v[n+2];
                 }
             }
         }
+        // Find "-"
+        for(int i = 0; i < f.length; i++)
+        {
+            if(f[i] == "*")
+            {
+                f[i-1] = Double.toString(value.findValue(f[i-1])-value.findValue(f[i+1]));
+                for (int n = i; n < f.length - 2; n++)
+                {
+                    f[n] = f[n+2];
+                }
+            }
+        }
+        // Find "+"
         for(int i = 0; i < f.length; i++)
         {
             if(f[i] == "+")
             {
-                f[i-1] = Double.toString(v[i-1]+v[i+1]);
-                v[i-1] = v[i-1]+v[i+1];
+                f[i-1] = Double.toString(value.findValue(f[i-1])+value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
-                    v[n] = v[n+2];
                 }
             }
         }
