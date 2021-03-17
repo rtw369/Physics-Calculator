@@ -4,26 +4,26 @@ import java.util.Scanner;
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 15/3/2021
+ * Modified: 16/3/2021
  */
 public class Value
 {
     private String[] symbols;
     private double[] values;
-    private String[] exceptions = {"+","-","*","/",")","("};
+    private String[] exceptions = {"+","-","*","/",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt"};
 
-    public Value(Formula f)
+    public Value(Formula f, double[] inputs)
     {
         setSymbols(f.getToken());
-        setValues();
+        setValues(inputs);
     }
 
     /**
-     * GetValue
-     * @description (Write a description of the function)
+     *findValue
+     * Finds a value based on string symbol
      * Arguments:
      *      String symbol - a string to find corresponding value
-     * Returns: double[] value
+     * Returns: double value
      * 
      * Name: Taewoo Rim
      * Created: 15/3/2021
@@ -53,6 +53,21 @@ public class Value
             value = Double.parseDouble(symbol);
         }
         return value;
+    }
+    
+    /**
+     *getValues
+     * Gets double[] values
+     * Arguments: N/A
+     * Returns: double value
+     * 
+     * Name: Taewoo Rim
+     * Created: 16/3/2021
+     * Modified: 16/3/2021
+     */
+    public double[] getValues()
+    {
+        return values;
     }
 
     /**
@@ -108,22 +123,21 @@ public class Value
     /**
      * SetValues
      * Sets double array values
-     * Arguments: N/A
+     * Arguments:
+     *      double[] inputs - inputed double array of values
      * Returns: N/A
      * 
      * Name: Taewoo Rim
      * Created: 15/3/2021
-     * Modified: 15/3/2021
+     * Modified: 16/3/2021
      */
-    public void setValues()
+    public void setValues(double[] inputs)
     {
-        Scanner scan = new Scanner(System.in);
         values = new double[symbols.length];
 
         for(int i = 0; i < symbols.length; i++)
         {
-            System.out.println(symbols[i]+" : ");
-            values[i] = Double.parseDouble(scan.nextLine());
+            values[i] = inputs[i];
         }
     }
 }
