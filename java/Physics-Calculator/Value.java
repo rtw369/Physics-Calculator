@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * Write a description of class Formula here.
+ * Gets string array from Formula and seperates symbol from the string array, then assigns values to each symbol
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
@@ -14,7 +14,7 @@ public class Value
 
     public Value(Formula f, double[] inputs)
     {
-        setSymbols(f.getToken());
+        setSymbols(f);
         setValues(inputs);
     }
 
@@ -74,50 +74,16 @@ public class Value
      * SetSymbols
      * Sets String array symbols
      * Arguments:
-     *      String[] tokens - tokenized string array of formula
+     *      Formula f - 
      * Returns: N/A
      * 
      * Name: Taewoo Rim
      * Created: 15/3/2021
-     * Modified: 15/3/2021
+     * Modified: 17/3/2021
      */
-    public void setSymbols(String[] tokens)
+    public void setSymbols(Formula f)
     {
-        int check = 0;
-        int count = 0;
-
-        for(int i = 0; i < tokens.length; i++)
-        {
-            check = 0;
-            while(check < exceptions.length)
-            {
-                if(tokens[i].equals(exceptions[check]))
-                {
-                    count++;
-                }
-                check++;
-            }
-        }
-
-        symbols =  new String[tokens.length - count];
-        count = 0;
-
-        for(int i = 0; i < tokens.length; i++)
-        {
-            check = 0;
-            for(int n = 0; n < exceptions.length; n++)
-            {
-                if(tokens[i].equals(exceptions[n]))
-                {
-                    check++;
-                }
-            }
-            if(check == 0)
-            {
-                symbols[count] = tokens[i];
-                count++;
-            }
-        }
+        symbols = f.getToken();
     }
 
     /**

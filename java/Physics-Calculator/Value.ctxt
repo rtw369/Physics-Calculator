@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Value
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Formula\ here.\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
+comment0.text=\r\n\ Gets\ string\ array\ from\ Formula\ and\ seperates\ symbol\ from\ the\ string\ array,\ then\ assigns\ values\ to\ each\ symbol\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
 comment1.params=f\ inputs
 comment1.target=Value(Formula,\ double[])
 comment2.params=symbol
@@ -9,9 +9,9 @@ comment2.text=\r\nfindValue\r\n\ Finds\ a\ value\ based\ on\ string\ symbol\r\n\
 comment3.params=
 comment3.target=double[]\ getValues()
 comment3.text=\r\ngetValues\r\n\ Gets\ double[]\ values\r\n\ Arguments\:\ N/A\r\n\ Returns\:\ double\ value\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 16/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
-comment4.params=tokens
-comment4.target=void\ setSymbols(java.lang.String[])
-comment4.text=\r\n\ SetSymbols\r\n\ Sets\ String\ array\ symbols\r\n\ Arguments\:\r\n\ \ \ \ \ \ String[]\ tokens\ -\ tokenized\ string\ array\ of\ formula\r\n\ Returns\:\ N/A\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
+comment4.params=f
+comment4.target=void\ setSymbols(Formula)
+comment4.text=\r\n\ SetSymbols\r\n\ Sets\ String\ array\ symbols\r\n\ Arguments\:\r\n\ \ \ \ \ \ Formula\ f\ -\ \r\n\ Returns\:\ N/A\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 17/3/2021\r\n
 comment5.params=inputs
 comment5.target=void\ setValues(double[])
 comment5.text=\r\n\ SetValues\r\n\ Sets\ double\ array\ values\r\n\ Arguments\:\r\n\ \ \ \ \ \ double[]\ inputs\ -\ inputed\ double\ array\ of\ values\r\n\ Returns\:\ N/A\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 16/3/2021\r\n

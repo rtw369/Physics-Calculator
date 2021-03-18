@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Formula
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Formula\ here.\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 14/3/2021\r\n
+comment0.text=\r\n\ Takes\ a\ string\ and\ tokenize\ it\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 14/3/2021\r\n
 comment1.params=s
 comment1.target=Formula(java.lang.String)
 comment2.params=

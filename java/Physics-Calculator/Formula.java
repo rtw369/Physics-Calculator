@@ -1,5 +1,5 @@
 /**
- * Write a description of class Formula here.
+ * Takes a string and tokenize it
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021

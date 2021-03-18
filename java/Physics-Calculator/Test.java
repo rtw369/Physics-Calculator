@@ -1,5 +1,5 @@
 /**
- * Write a description of class Formula here.
+ * Main program
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021

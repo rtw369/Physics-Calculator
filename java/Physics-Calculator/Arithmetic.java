@@ -1,16 +1,16 @@
 /**
- * Write a description of class Formula here.
+ * Gets tokenized formula from Formula and values from Value, then calculates and saves the result
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 16/3/2021
+ * Modified: 17/3/2021
  */
 public class Arithmetic
 {
     private String result;
     public Arithmetic(Formula f, Value v)
     {
-        String[] results = calculate(f, v.getValues());
+        String[] results = calculate(f, v);
         result = results[0];
     }
     
@@ -24,40 +24,39 @@ public class Arithmetic
      * 
      * Taewoo Rim
      * Created: 14/3/2021
-     * Modified: 16/3/2021
+     * Modified: 17/3/2021
      */
-    public String[] calculate(Formula formula, double[] v)
+    public String[] calculate(Formula formula, Value v)
     {
-        String[] f = formula.getToken();
-        Value value = new Value(formula,v);
-        String[] Chunk = new String[f.length];
+        String[] s = formula.getToken();
+        String[] Chunk = new String[s.length];
         int placeHolder = 0;
         
         // Find brackets and do order of operations
-        for(int i = 0; i < f.length; i++)
+        for(int i = 0; i < s.length; i++)
         {
-            if(f[i].equals("("))
+            if(s[i].equals("("))
             {
                 placeHolder = i;
             }
-            else if(f[i].equals(")"))
+            else if(s[i].equals(")"))
             {
                 for(int count = i - placeHolder; placeHolder < i; count++)
                 {
-                    Chunk[count] = f[placeHolder];
+                    Chunk[count] = s[placeHolder];
                     i--;
                 }
-                orderOfOperations(value, Chunk, v);
-                f[placeHolder] = f[placeHolder+1];
-                for(int n = i-1; n < f.length - 2; n++)
+                orderOfOperations(v, Chunk);
+                s[placeHolder] = s[placeHolder+1];
+                for(int n = i-1; n < s.length - 2; n++)
                 {
-                    f[n] = f[n+2];
+                    s[n] = s[n+2];
                 }
             }
         }
         
-        orderOfOperations(value, f, v);
-        return f;
+        orderOfOperations(v, s);
+        return s;
     }
     
     /**
@@ -71,9 +70,9 @@ public class Arithmetic
      * 
      * Taewoo Rim
      * Created: 14/3/2021
-     * Modified: 16/3/2021
+     * Modified: 17/3/2021
      */
-    public String[] orderOfOperations(Value value, String[] f, double[] v)
+    public String[] orderOfOperations(Value value, String[] f)
     {
         // Find "^"
         for(int i = 0; i < f.length; i++)
@@ -87,6 +86,7 @@ public class Arithmetic
                 }
             }
         }
+        functions(value,f);
         // Find "/"
         for(int i = 0; i < f.length; i++)
         {
@@ -147,9 +147,9 @@ public class Arithmetic
      * 
      * Taewoo Rim
      * Created: 16/3/2021
-     * Modified: 16/3/2021
+     * Modified: 17/3/2021
      */
-    public String[] functions(Value value, String[] f, double[] v)
+    public String[] functions(Value value, String[] f)
     {
         boolean changed = false;
         for(int i = 0; i < f.length; i++)

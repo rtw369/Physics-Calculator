@@ -1,17 +1,17 @@
 #BlueJ class context
 comment0.target=Arithmetic
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Formula\ here.\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
+comment0.text=\r\n\ Gets\ tokenized\ formula\ from\ Formula\ and\ values\ from\ Value,\ then\ calculates\ and\ saves\ the\ result\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 17/3/2021\r\n
 comment1.params=f\ v
 comment1.target=Arithmetic(Formula,\ Value)
 comment2.params=formula\ v
-comment2.target=java.lang.String[]\ calculate(Formula,\ double[])
-comment2.text=\r\n\ calculate\r\n\ Checks\ for\ brackets\ and\ calculate\r\n\ Arguments\:\r\n\ \ \ \ \ \ Formula\ f\r\n\ \ \ \ \ \ double[]\ v\ -\ values\ of\ symbols\r\n\ Returns\:\ String[]\ f\r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
-comment3.params=value\ f\ v
-comment3.target=java.lang.String[]\ orderOfOperations(Value,\ java.lang.String[],\ double[])
-comment3.text=\r\n\ OrderOfOperations\r\n\ Does\ calculations\ according\ to\ the\ order\ of\ operation.\r\n\ Arguments\:\r\n\ \ \ \ \ \ Value\ value\ -\ used\ to\ call\ findValue\ in\ Value\ class\r\n\ \ \ \ \ \ String[]\ f\ -\ string\ array\ of\ expression\ that\ needs\ to\ be\ calculated\ accoring\ to\ the\ order\ of\ operation\r\n\ \ \ \ \ \ double[]\ v\ -\ values\ of\ symbols\r\n\ Returns\:\ String[]\ f\r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
-comment4.params=value\ f\ v
-comment4.target=java.lang.String[]\ functions(Value,\ java.lang.String[],\ double[])
-comment4.text=\r\n\ functions\r\n\ Checks\ to\ see\ if\ there\ are\ functions\ in\ the\ formula\ and\ calculates\ if\ there\ is\r\n\ Arguments\:\ \r\n\ \ \ \ \ \ \r\n\ Returns\:\ \r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 16/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
+comment2.target=java.lang.String[]\ calculate(Formula,\ Value)
+comment2.text=\r\n\ calculate\r\n\ Checks\ for\ brackets\ and\ calculate\r\n\ Arguments\:\r\n\ \ \ \ \ \ Formula\ f\r\n\ \ \ \ \ \ double[]\ v\ -\ values\ of\ symbols\r\n\ Returns\:\ String[]\ f\r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 17/3/2021\r\n
+comment3.params=value\ f
+comment3.target=java.lang.String[]\ orderOfOperations(Value,\ java.lang.String[])
+comment3.text=\r\n\ OrderOfOperations\r\n\ Does\ calculations\ according\ to\ the\ order\ of\ operation.\r\n\ Arguments\:\r\n\ \ \ \ \ \ Value\ value\ -\ used\ to\ call\ findValue\ in\ Value\ class\r\n\ \ \ \ \ \ String[]\ f\ -\ string\ array\ of\ expression\ that\ needs\ to\ be\ calculated\ accoring\ to\ the\ order\ of\ operation\r\n\ \ \ \ \ \ double[]\ v\ -\ values\ of\ symbols\r\n\ Returns\:\ String[]\ f\r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 17/3/2021\r\n
+comment4.params=value\ f
+comment4.target=java.lang.String[]\ functions(Value,\ java.lang.String[])
+comment4.text=\r\n\ functions\r\n\ Checks\ to\ see\ if\ there\ are\ functions\ in\ the\ formula\ and\ calculates\ if\ there\ is\r\n\ Arguments\:\ \r\n\ \ \ \ \ \ \r\n\ Returns\:\ \r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 16/3/2021\r\n\ Modified\:\ 17/3/2021\r\n
 comment5.params=
 comment5.target=java.lang.String\ getResult()
 comment5.text=\r\n\ getResult\r\n\ Gets\ result\r\n\ Arguments\:N/a\r\n\ Returns\:\ String\ result\r\n\ \r\n\ Taewoo\ Rim\r\n\ Created\:\ 16/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
