@@ -14,7 +14,7 @@ public class Test
         Formula f = new Formula(formulaForx1);
         Value v = new Value(f, inputs);
         Arithmetic a = new Arithmetic(f,v);
-        System.out.println(a.getResult());
+        //System.out.println(a.getResult());
     }
     
     /**

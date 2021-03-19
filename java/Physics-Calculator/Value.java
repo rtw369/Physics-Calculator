@@ -10,7 +10,7 @@ public class Value
 {
     private String[] symbols;
     private double[] values;
-    private String[] exceptions = {"+","-","*","/",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt"};
+    private String[] signs = {"+","-","*","/","^",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt"};
 
     public Value(Formula f, double[] inputs)
     {
@@ -37,7 +37,7 @@ public class Value
 
         for(int i = 0; i < symbols.length; i++)
         {
-            if(symbols[i] == symbol)
+            if(symbols[i].equals(symbol))
             {
                 b = true;
                 count = i;
@@ -71,10 +71,10 @@ public class Value
     }
 
     /**
-     * SetSymbols
+     * setSymbols
      * Sets String array symbols
      * Arguments:
-     *      Formula f - 
+     *      Formula f - tokenized string array of formula
      * Returns: N/A
      * 
      * Name: Taewoo Rim
@@ -83,11 +83,78 @@ public class Value
      */
     public void setSymbols(Formula f)
     {
-        symbols = f.getToken();
+        String[] s = f.getToken();
+        boolean check;
+        int count = 0;
+        
+        for(int i = 0; i < s.length; i++)
+        {
+            check = true;
+            for(int n = 0; n < i; n++)
+            {
+                if(s[i].equals(s[n]))
+                {
+                    check = false;
+                }
+            }
+            for(int n = 0; n < signs.length; n++)
+            {
+                if(s[i].equals(signs[n]))
+                {
+                    check = true;
+                    count++;
+                }
+            }
+            try
+            {
+                double v = Double.parseDouble(s[i]);
+                count++;
+            }
+            catch(NumberFormatException e)
+            {
+                if(check == false)
+                {
+                    count++;
+                }
+            }
+        }
+        symbols = new String[s.length - count];
+        count = 0;
+        
+        for(int i = 0; i < s.length; i++)
+        {
+            check = true;
+            for(int n = 0; n < signs.length; n++)
+            {   
+                if(s[i].equals(signs[n]))
+                {
+                    check = false;
+                }
+            }
+            for(int n = 0; n < i; n++)
+            {   
+                if(s[i].equals(s[n]))
+                {
+                    check = false;
+                }
+            }
+            if(check)
+            {
+                try
+                {
+                    double v = Double.parseDouble(s[i]);
+                }
+                catch(NumberFormatException e)
+                {
+                    symbols[count] = s[i];
+                    count++;
+                }
+            }
+        }
     }
 
     /**
-     * SetValues
+     * setValues
      * Sets double array values
      * Arguments:
      *      double[] inputs - inputed double array of values
@@ -100,7 +167,7 @@ public class Value
     public void setValues(double[] inputs)
     {
         values = new double[symbols.length];
-
+        
         for(int i = 0; i < symbols.length; i++)
         {
             values[i] = inputs[i];

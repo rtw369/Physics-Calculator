@@ -29,28 +29,49 @@ public class Arithmetic
     public String[] calculate(Formula formula, Value v)
     {
         String[] s = formula.getToken();
-        String[] Chunk = new String[s.length];
+        String[] chunk;
+        boolean brackets = true;
         int placeHolder = 0;
+        int num;
+        int count;
         
         // Find brackets and do order of operations
-        for(int i = 0; i < s.length; i++)
+        while(brackets)
         {
-            if(s[i].equals("("))
+            brackets = false;
+            for(int i = 0; i < s.length; i++)
             {
-                placeHolder = i;
-            }
-            else if(s[i].equals(")"))
-            {
-                for(int count = i - placeHolder; placeHolder < i; count++)
+                if(s[i].equals("("))
                 {
-                    Chunk[count] = s[placeHolder];
-                    i--;
+                    placeHolder = i;
                 }
-                orderOfOperations(v, Chunk);
-                s[placeHolder] = s[placeHolder+1];
-                for(int n = i-1; n < s.length - 2; n++)
+                if(s[i].equals(")"))
                 {
-                    s[n] = s[n+2];
+                    num = placeHolder;
+                    count = i - placeHolder;
+                    chunk = new String[count];
+                    for(int n = 0; n < count; n++)
+                    {
+                        chunk[n] = s[num];
+                        num++;
+                    }
+                    chunk = orderOfOperations(v, chunk);
+                    s[placeHolder] = "-32";
+                    for(int n = i; n < s.length - 1; n++)
+                    {
+                        s[placeHolder + 1] = s[n+1];
+                    }
+                }
+            }
+            for(int i = 0; i < s.length; i++)
+            {
+                if(s[i].equals("("))
+                {
+                    brackets =  true;
+                }
+                else if(s[i].equals(")"))
+                {
+                    brackets = true;
                 }
             }
         }
@@ -60,12 +81,11 @@ public class Arithmetic
     }
     
     /**
-     * OrderOfOperations
+     * orderOfOperations
      * Does calculations according to the order of operation.
      * Arguments:
      *      Value value - used to call findValue in Value class
      *      String[] f - string array of expression that needs to be calculated accoring to the order of operation
-     *      double[] v - values of symbols
      * Returns: String[] f
      * 
      * Taewoo Rim
@@ -104,7 +124,6 @@ public class Arithmetic
         {
             if(f[i].equals("*"))
             {
-                f[i-1] = Double.toString(value.findValue(f[i-1])*value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
@@ -135,6 +154,13 @@ public class Arithmetic
                 }
             }
         }
+        
+        System.out.println("_______________________");
+        for(int i = 0; i < f.length; i++)
+        {
+            System.out.println(f[i]);
+        }
+        
         return f;
     }
     
