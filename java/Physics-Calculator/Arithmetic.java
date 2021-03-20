@@ -3,7 +3,7 @@
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 17/3/2021
+ * Modified: 18/3/2021
  */
 public class Arithmetic
 {
@@ -24,7 +24,7 @@ public class Arithmetic
      * 
      * Taewoo Rim
      * Created: 14/3/2021
-     * Modified: 17/3/2021
+     * Modified: 18/3/2021
      */
     public String[] calculate(Formula formula, Value v)
     {
@@ -56,11 +56,20 @@ public class Arithmetic
                         num++;
                     }
                     chunk = orderOfOperations(v, chunk);
-                    s[placeHolder] = "-32";
-                    for(int n = i; n < s.length - 1; n++)
+                    s[placeHolder] = chunk[0];
+                    chunk = new String[s.length-count];
+                    num = 0;
+                    for(int n = 0; n <= placeHolder; n++)
                     {
-                        s[placeHolder + 1] = s[n+1];
+                        chunk[num] = s[n];
+                        num++;
                     }
+                    for(int n = i+1; n < s.length; n++)
+                    {
+                        chunk[num] = s[n];
+                        num++;
+                    }
+                    s = chunk;
                 }
             }
             for(int i = 0; i < s.length; i++)
@@ -90,20 +99,37 @@ public class Arithmetic
      * 
      * Taewoo Rim
      * Created: 14/3/2021
-     * Modified: 17/3/2021
+     * Modified: 18/3/2021
      */
     public String[] orderOfOperations(Value value, String[] f)
     {
+        String[] s;
+        if(f[0].equals("("))
+        {   
+            s = new String[f.length - 1];
+            for(int i = 0; i < s.length; i++)
+            {
+                s[i] = f[i+1];
+            }
+            f = s;
+        }
         // Find "^"
         for(int i = 0; i < f.length; i++)
         {
             if(f[i].equals("^"))
             {
+                s = new String[f.length-2];
                 f[i-1] = Double.toString(Math.pow(value.findValue(f[i-1]), value.findValue(f[i+1])));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
                 }
+                for(int n = 0; n < s.length; n++)
+                {
+                    s[n] = f[n];
+                }
+                f = s;
+                i = 0;
             }
         }
         functions(value,f);
@@ -112,11 +138,18 @@ public class Arithmetic
         {
             if(f[i].equals("/"))
             {
+                s = new String[f.length-2];
                 f[i-1] = Double.toString(value.findValue(f[i-1])/value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
                 }
+                for(int n = 0; n < s.length; n++)
+                {
+                    s[n] = f[n];
+                }
+                f = s;
+                i = 0;
             }
         }
         // Find "*"
@@ -124,10 +157,18 @@ public class Arithmetic
         {
             if(f[i].equals("*"))
             {
+                s = new String[f.length-2];
+                f[i-1] = Double.toString(value.findValue(f[i-1])*value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
                 }
+                for(int n = 0; n < s.length; n++)
+                {
+                    s[n] = f[n];
+                }
+                f = s;
+                i = 0;
             }
         }
         // Find "-"
@@ -135,11 +176,18 @@ public class Arithmetic
         {
             if(f[i].equals("-"))
             {
+                s = new String[f.length-2];
                 f[i-1] = Double.toString(value.findValue(f[i-1])-value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
                 }
+                for(int n = 0; n < s.length; n++)
+                {
+                    s[n] = f[n];
+                }
+                f = s;
+                i = 0;
             }
         }
         // Find "+"
@@ -147,20 +195,20 @@ public class Arithmetic
         {
             if(f[i].equals("+"))
             {
+                s = new String[f.length-2];
                 f[i-1] = Double.toString(value.findValue(f[i-1])+value.findValue(f[i+1]));
                 for (int n = i; n < f.length - 2; n++)
                 {
                     f[n] = f[n+2];
                 }
+                for(int n = 0; n < s.length; n++)
+                {
+                    s[n] = f[n];
+                }
+                f = s;
+                i = 0;
             }
         }
-        
-        System.out.println("_______________________");
-        for(int i = 0; i < f.length; i++)
-        {
-            System.out.println(f[i]);
-        }
-        
         return f;
     }
     

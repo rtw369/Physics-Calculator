@@ -3,18 +3,26 @@
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 16/3/2021
+ * Modified: 18/3/2021
  */
+import java.util.Scanner;
 public class Test
 {
     public static void main(String[]args)
     {
-        double[] inputs = {-4,1,4};
-        String formulaForx1 = "( -1 * b + sqrt ( b ^ 2 - 4 * a * c ) ) / 2 * a";
-        Formula f = new Formula(formulaForx1);
-        Value v = new Value(f, inputs);
+        Scanner scan = new Scanner(System.in);
+        String formula = "e ^ a";
+        Formula f = new Formula(formula);
+        Value v = new Value(f);
+        double [] input = new double[v.symbols.length];
+        for(int i = 0; i < input.length; i++)
+        {
+            System.out.println("ENTER A NUMBER FOR : "+v.symbols[i]);
+            input[i] = Double.parseDouble(scan.nextLine());
+        }
+        v.setValues(input);
         Arithmetic a = new Arithmetic(f,v);
-        //System.out.println(a.getResult());
+        System.out.println(a.getResult());
     }
     
     /**

@@ -4,18 +4,17 @@ import java.util.Scanner;
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 16/3/2021
+ * Modified: 18/3/2021
  */
 public class Value
 {
-    private String[] symbols;
+    public String[] symbols;
     private double[] values;
-    private String[] signs = {"+","-","*","/","^",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt"};
+    private String[] signs = {"+","-","*","/","^",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt","pi","e"};
 
-    public Value(Formula f, double[] inputs)
+    public Value(Formula f)
     {
         setSymbols(f);
-        setValues(inputs);
     }
 
     /**
@@ -46,6 +45,14 @@ public class Value
         if(b)
         {
             value = values[count];
+        }
+        else if(symbol.equals("pi"))
+        {
+            return Math.PI;
+        }
+        else if(symbol.equals("e"))
+        {
+            return Math.E;
         }
         //not found in symbols
         else

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Value
-comment0.text=\r\n\ Gets\ string\ array\ from\ Formula\ and\ seperates\ symbol\ from\ the\ string\ array,\ then\ assigns\ values\ to\ each\ symbol\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 16/3/2021\r\n
-comment1.params=f\ inputs
-comment1.target=Value(Formula,\ double[])
+comment0.text=\r\n\ Gets\ string\ array\ from\ Formula\ and\ seperates\ symbol\ from\ the\ string\ array,\ then\ assigns\ values\ to\ each\ symbol\r\n\r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 14/3/2021\r\n\ Modified\:\ 18/3/2021\r\n
+comment1.params=f
+comment1.target=Value(Formula)
 comment2.params=symbol
 comment2.target=double\ findValue(java.lang.String)
 comment2.text=\r\nfindValue\r\n\ Finds\ a\ value\ based\ on\ string\ symbol\r\n\ Arguments\:\r\n\ \ \ \ \ \ String\ symbol\ -\ a\ string\ to\ find\ corresponding\ value\r\n\ Returns\:\ double\ value\r\n\ \r\n\ Name\:\ Taewoo\ Rim\r\n\ Created\:\ 15/3/2021\r\n\ Modified\:\ 15/3/2021\r\n
