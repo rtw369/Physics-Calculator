@@ -182,6 +182,17 @@ public class Value
             }
             catch(NumberFormatException e)
             {
+                continue;
+            }
+        }
+        for(int i = 0; i < symbols.length; i++)
+        {
+            try
+            {
+                values[i] = Double.parseDouble(inputs[i]);
+            }
+            catch(NumberFormatException e)
+            {
                 if(inputs[i].equals("pi"))
                 {
                     values[i] = Math.PI;
