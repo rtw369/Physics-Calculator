@@ -4,7 +4,7 @@ import java.util.Scanner;
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 18/3/2021
+ * Modified: 22/3/2021
  */
 public class Value
 {
@@ -169,15 +169,34 @@ public class Value
      * 
      * Name: Taewoo Rim
      * Created: 15/3/2021
-     * Modified: 16/3/2021
+     * Modified: 22/3/2021
      */
-    public void setValues(double[] inputs)
+    public void setValues(String[] inputs, Value value)
     {
         values = new double[symbols.length];
-        
         for(int i = 0; i < symbols.length; i++)
         {
-            values[i] = inputs[i];
+            try
+            {
+                values[i] = Double.parseDouble(inputs[i]);
+            }
+            catch(NumberFormatException e)
+            {
+                if(inputs[i].equals("pi"))
+                {
+                    values[i] = Math.PI;
+                }
+                else if(inputs[i].equals("e"))
+                {
+                    values[i] = Math.E;
+                }
+                else
+                {
+                    Formula f = new Formula(inputs[i]);
+                    Arithmetic a = new Arithmetic(f,value);
+                    values[i] = Double.parseDouble(a.getResult());
+                }
+            }
         }
     }
 }

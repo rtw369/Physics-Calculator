@@ -3,7 +3,7 @@
  *
  * Name: Taewoo Rim
  * Created: 14/3/2021
- * Modified: 18/3/2021
+ * Modified: 22/3/2021
  */
 import java.util.Scanner;
 public class Test
@@ -11,16 +11,16 @@ public class Test
     public static void main(String[]args)
     {
         Scanner scan = new Scanner(System.in);
-        String formula = "e ^ a";
+        String formula = "a + b + c";
         Formula f = new Formula(formula);
         Value v = new Value(f);
-        double [] input = new double[v.symbols.length];
+        String [] input = new String[v.symbols.length];
         for(int i = 0; i < input.length; i++)
         {
             System.out.println("ENTER A NUMBER FOR : "+v.symbols[i]);
-            input[i] = Double.parseDouble(scan.nextLine());
+            input[i] = scan.nextLine();
         }
-        v.setValues(input);
+        v.setValues(input,v);
         Arithmetic a = new Arithmetic(f,v);
         System.out.println(a.getResult());
     }

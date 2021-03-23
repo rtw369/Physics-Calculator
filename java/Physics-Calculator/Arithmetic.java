@@ -85,7 +85,7 @@ public class Arithmetic
             }
         }
         
-        orderOfOperations(v, s);
+        s = orderOfOperations(v, s);
         return s;
     }
     
