@@ -10,7 +10,7 @@ public class Value
 {
     public String[] symbols;
     private double[] values;
-    private String[] signs = {"+","-","*","/","^",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt","pi","e"};
+    private String[] signs = {"=","+","-","*","/","^",")","(","sin","cos","tan","sin^-1","cos^-1","tan^-1","sqrt","pi","e"};
 
     public Value(Formula f)
     {
